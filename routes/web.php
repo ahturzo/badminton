@@ -23,4 +23,11 @@ Route::middleware(['auth'])->group(function()
 {
 	Route::resource('player', 'PlayerController');
 	Route::get('allPlayer', 'PlayerController@allPlayers')->name('all.player');
+
+	Route::resource('team', 'TeamController');
+	Route::get('allTeam', 'TeamController@allTeams')->name('all.team');
+	Route::get('getPlayers', 'TeamController@players')->name('get.players');
+
+
+	Route::resource('match', 'MatchController');
 });

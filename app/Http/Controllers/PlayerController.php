@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Player;
+use App\Team;
 use Yajra\DataTables\DataTables;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -40,6 +41,7 @@ class PlayerController extends Controller
     {
         $data = $request->validate([
             'player_name'  => ['required', 'string'],
+            'attribute'    => ['required', 'string']
         ]);
         if($data)
         {
@@ -80,6 +82,7 @@ class PlayerController extends Controller
     {
         $data = $request->validate([
             'player_name'  => ['required', 'string'],
+            'attribute'    => ['required', 'string'],
         ]);
         if($data)
         {
@@ -95,6 +98,11 @@ class PlayerController extends Controller
      */
     public function destroy($id)
     {
+        $player = Team::where('player_1_id', $id)->orWhere('player_2_id', $id)->first();
+        if($player)
+        {
+            return "exist";
+        }
         Player::destroy($id);
     }
 
