@@ -61,7 +61,6 @@
 		                  	<label for="type"class="text-danger"><b style="color:#00008B;">Player Type</b> *</label>
 		                  	<div class="select2-purple">
 		                    	<select id="type" name="attribute" class="select2" multiple="multiple" data-placeholder="Select Player Type" data-dropdown-css-class="select2-purple" style="width: 100%;" required>
-		                    		<option value=""></option>
 		                    		<option value="Strong">Strong</option>
 		                    		<option value="Average">Average</option>
 		                    	</select>
@@ -108,7 +107,9 @@
         	save_method = "add";
         	$('input[name=_method]').val('POST');
 			$('#playerModal form')[0].reset();
-			$("#type").val('').select2();
+			$("#type").val('').select2({
+		        maximumSelectionLength: 1
+		    });
         	$('#playerModal').modal('show');
         	$('#submitButton').text('Add');
         	$('.modal-title').text('Create New Player');

@@ -150,35 +150,6 @@
         	$('.modal-title').text('Create New Team');
         }
 
-        function editData(id) 
-        {
-	        save_method = 'edit';
-	        $('input[name=_method]').val('PATCH');
-	        $('#createModal').modal('show');
-	        $('#createModal form')[0].reset();
-	        $('.modal-title').text('Edit Team');
-	        $('#submitButton').text('Update');
-
-	        $.ajax({
-	            url: "{{ url('team') }}" + '/' + id + "/edit",
-	            type: "GET",
-	            dataType: "JSON",
-	            success: function(data) 
-	            {
-	                $('#id').val(data.id);
-	                $('#strong').val(data.player_1_id).select2({
-				        maximumSelectionLength: 1
-				    });
-	                $('#average').val(data.player_2_id).select2({
-				        maximumSelectionLength: 1
-				    });
-	            },
-	            error : function() {
-	                alert("Data Not Found");
-	            }
-	        });
-	    }
-
         $(function()
         {
 	        $('#createModal form').on('submit', function (e) {
@@ -200,34 +171,6 @@
 	                              type: "success",
 	                              title: "Done!",
 	                              text: "Team Added",
-	                            });
-	                        },
-	                        error : function(data){        
-	                            swal.fire({
-	                                type: 'error',
-	                                title: 'Oops...',
-	                                text: data.responseJSON.message,
-	                            });
-	                        }
-	                    });
-	                    return false;
-	                }
-	                else{
-	                    var id = $('#id').val();
-	                    url = "{{ url('player') }}" + '/' + id;
-	                    $.ajax({
-	                        url : url,
-	                        type : "POST",
-	                        data: new FormData($("#playerModal form")[0]),
-	                        contentType: false,
-	                        processData: false,
-	                        success : function(data) {
-	                            $('#playerModal').modal('hide');
-	                            table1.ajax.reload();
-	                            swal.fire({
-	                              type: "success",
-	                              title: "Done!",
-	                              text: "Player Name Edited",
 	                            });
 	                        },
 	                        error : function(data){        

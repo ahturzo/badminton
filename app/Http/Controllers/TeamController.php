@@ -98,7 +98,7 @@ class TeamController extends Controller
      */
     public function edit($id)
     {
-        return Team::find($id);
+        
     }
 
     /**
@@ -135,9 +135,7 @@ class TeamController extends Controller
 
         return Datatables::of($team)
             ->addColumn('action', function($team){
-                return '<a onclick="editData('.$team->id.')" class="btn btn-sm btn-warning" style="border-radius: 20%;"><i class="fa fa-edit"></i></a>'.' '. 
-                '<a onclick="deleteData('.$team->id.')" class="btn btn-sm btn-danger" style="border-radius: 20%;"><i class="fa fa-ban"></i></a>';
-                
-          })->make(true);
+                return '<a onclick="deleteData('.$team->id.')" class="btn btn-sm btn-danger" style="border-radius: 20%;"><i class="fa fa-ban"></i></a>';
+            })->make(true);
     }
 }
