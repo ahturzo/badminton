@@ -135,8 +135,12 @@
         	save_method = "add";
         	$('input[name=_method]').val('POST');
 			$('#createModal form')[0].reset();
-			$("#team1").val('').select2();
-			$("#team2").val('').select2();
+			$("#team1").val('').select2({
+		        maximumSelectionLength: 1
+		    });
+			$("#team2").val('').select2({
+		        maximumSelectionLength: 1
+		    });
 			$.ajax({
 	            url: "{{ route('get.teams') }}",
 	            type: "GET",
