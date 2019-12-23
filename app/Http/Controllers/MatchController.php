@@ -116,7 +116,7 @@ class MatchController extends Controller
 
                 if($data['team_2_point'] == 10)
                 {
-                    $net_point = (( number_format($data['team_2_point'], 2) - number_format($data['team_2_point'],2) ) + 5) /100;
+                    $net_point = (( number_format($data['team_2_point'], 2) - number_format($data['team_1_point'],2) ) + 5) /100;
                     $result = $data['team_2'] . " win by " . $data['team_2_point'] . " - " . $data['team_1_point'];
                 }
                 elseif($data['team_2_point'] == 15)
