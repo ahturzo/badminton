@@ -24,7 +24,7 @@ class CreateTeamsTable extends Migration
             $table->integer('win');
             $table->integer('lose');
             $table->integer('point');
-            $table->string('net_point');
+            $table->double('net_point');
             $table->timestamps();
         });
     }
