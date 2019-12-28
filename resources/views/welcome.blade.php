@@ -105,6 +105,10 @@
                         <tbody>
                             @php $i =0; @endphp
                             @foreach($point as $team)
+                                @if($i == 0 || $i == 1 || $i == 2 || $i == 3)
+                                <tr class="table-info">
+                                @else
+                                @endif
                                 <tr class="table-success">
                                     <td>{{ ++$i }}</td>
                                     <td>{{ $team->team_name }}</td>
