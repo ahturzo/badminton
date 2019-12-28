@@ -108,8 +108,8 @@
                                 @if($i == 0 || $i == 1 || $i == 2 || $i == 3)
                                 <tr class="table-info">
                                 @else
-                                @endif
                                 <tr class="table-success">
+                                @endif
                                     <td>{{ ++$i }}</td>
                                     <td>{{ $team->team_name }}</td>
                                     <td>{{ $team->player_1 }}</td>
