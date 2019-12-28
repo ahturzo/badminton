@@ -106,7 +106,7 @@
                             @php $i =0; @endphp
                             @foreach($point as $team)
                                 @if($i == 0 || $i == 1 || $i == 2 || $i == 3)
-                                <tr class="table-dark">
+                                <tr class="text-white" style="color: black;">
                                 @else
                                 <tr class="table-success">
                                 @endif
