@@ -62,10 +62,13 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            table{
+                font-weight: bold;
+            }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -78,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Badminton Tournament - 2019
+                    Badminton Tournament - {{ \Carbon\Carbon::now()->format('Y') }}
                     <hr>
                 </div>
             </div>
@@ -87,8 +90,8 @@
         <div class="container">
             @if(count($point) > 0)
                 <div class="table-responsive">
-                    <h1>Points Table</h1>
-                    <table class="table table-hover">
+                    <h1 class="text-center">Points Table</h1>
+                    <table class="table table-hover table-bordered table-striped">
                         <thead class="bg-dark text-white">
                             <tr>
                                 <th scope="col">#</th>
@@ -106,9 +109,9 @@
                             @php $i =0; @endphp
                             @foreach($point as $team)
                                 @if($i == 0 || $i == 1 || $i == 2 || $i == 3)
-                                <tr class="text-white" style="background-color: #800000;">
+                                <tr class="text-white" style="background-color: #008000;">
                                 @else
-                                <tr class="table-success">
+                                <tr>
                                 @endif
                                     <td>{{ ++$i }}</td>
                                     <td>{{ $team->team_name }}</td>
@@ -127,11 +130,64 @@
             @endif
 
             <br>
+            @if(sizeof($fixtures))
+                <h1 class="text-center">Fixture</h1><hr>
+                <div class="row">
+                    @php $size = sizeof($fixtures); $j=$k=1; @endphp
+                    <div class="col-4"> 
+                        <div class="table-responsive">
+                            <h4 class="text-center">Match Day {{ $j++ }}</h4>  
+                            <table class="table table-hover table-bordered">
+                                <thead class="text-white bg-dark">
+                                    <tr>
+                                        <th scope="col">Match</th>
+                                        <th scope="col">Team 1</th>
+                                        <th scope="col">Team 2</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                    @for($i=0; $i<$size; $i++)
+                        @if((($i+1)%8) == 0)
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-4"> 
+                                <div class="table-responsive">
+                                    <h4 class="text-center">Match Day {{ $j++ }}</h4>
+                                    <table class="table table-hover table-bordered">
+                                        <thead class="text-white bg-dark">
+                                            <tr>
+                                                <th scope="col">Match</th>
+                                                <th scope="col">Team 1</th>
+                                                <th scope="col">Team 2</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ $k++ }}</td>
+                                                <td>{{ $fixtures[$i]->team1 }}</td>
+                                                <td>{{ $fixtures[$i]->team2 }}</td>
+                                            </tr>
+                        @else
+                            <tr>
+                                <td>{{ $k++ }}</td>
+                                <td>{{ $fixtures[$i]->team1 }}</td>
+                                <td>{{ $fixtures[$i]->team2 }}</td>
+                            </tr>
+                        @endif
+                    @endfor
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            @endif
+            <br>
 
             @if(count($matches) > 0)
                 <div class="table-responsive">
                     <h1>All Matches</h1>
-                    <table class="table table-hover">
+                    <table class="table table-hover table-bordered table-striped m-b-md">
                         <thead class="text-white bg-dark">
                             <tr>
                                 <th scope="col">#</th>
@@ -145,7 +201,7 @@
                         <tbody>
                             @php $j =0; @endphp
                             @foreach($matches as $match)
-                                <tr class="table-secondary">
+                                <tr class="text-white" style="background-color: #191970;">
                                     <td>{{ ++$j }}</td>
                                     <td>{{ $match->team_1 }}</td>
                                     <td>{{ $match->team_1_point }}</td>
