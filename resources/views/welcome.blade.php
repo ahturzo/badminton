@@ -108,7 +108,7 @@
                         <tbody>
                             @php $i =0; @endphp
                             @foreach($point as $team)
-                                @if($i == 0 || $i == 1 || $i == 2 || $i == 3)
+                                @if($i >= 0 && $i <= 7)
                                 <tr class="text-white" style="background-color: #008000;">
                                 @else
                                 <tr>
@@ -147,7 +147,7 @@
                                 </thead>
                                 <tbody>
                     @for($i=0; $i<$size; $i++)
-                        @if((($i+1)%8) == 0)
+                        @if((($i+1)%9) == 0)
                                         </tbody>
                                     </table>
                                 </div>

@@ -54,7 +54,7 @@ class PublicController extends Controller
     	$fixture = Fixture::orderBy('match_no', 'asc')->get();
     // 	$check = array();
     // 	$value = array();
-    // 	for($i=sizeof($team)+9; $i>0; $i--)
+    // 	for($i=sizeof($team); $i>0; $i--)
     // 	{
     // 		for($j=0; $j<sizeof($fixture); $j = $j + $i)
     // 		{
