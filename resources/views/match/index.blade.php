@@ -261,7 +261,7 @@
           .then((willDelete) => {
             if (willDelete.value) {
               $.ajax({
-                  	url : "{{ url('team') }}" + '/' + id,
+                  	url : "{{ url('match') }}" + '/' + id,
                   	type : "POST",
                   	data : {'_method' : 'DELETE', '_token' : csrf_token},
                   	success : function(data) 
