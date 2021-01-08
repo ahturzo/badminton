@@ -164,13 +164,25 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            @php $flag = 0; @endphp
+                                            @foreach($matches as $match)
+                                                @if(($match->team_1 == $fixtures[$i]->team1 && $match->team_2 == $fixtures[$i]->team2) || ($match->team_1 == $fixtures[$i]->team2 && $match->team_2 == $fixtures[$i]->team1))
+                                                    @php $flag = 1; @endphp
+                                                @endif
+                                            @endforeach
+                                            <tr @if($flag == 1) style="background-color: #800000;" class="text-white" @endif>
                                                 <td>{{ $k++ }}</td>
                                                 <td>{{ $fixtures[$i]->team1 }}</td>
                                                 <td>{{ $fixtures[$i]->team2 }}</td>
                                             </tr>
                         @else
-                            <tr>
+                            @php $flag = 0; @endphp
+                            @foreach($matches as $match)
+                                @if(($match->team_1 == $fixtures[$i]->team1 && $match->team_2 == $fixtures[$i]->team2) || ($match->team_1 == $fixtures[$i]->team2 && $match->team_2 == $fixtures[$i]->team1))
+                                    @php $flag = 1; @endphp
+                                @endif
+                            @endforeach
+                            <tr @if($flag == 1) style="background-color: #800000;" class="text-white" @endif>
                                 <td>{{ $k++ }}</td>
                                 <td>{{ $fixtures[$i]->team1 }}</td>
                                 <td>{{ $fixtures[$i]->team2 }}</td>
