@@ -134,7 +134,7 @@
                 <h1 class="text-center">Fixture</h1><hr>
                 <div class="row">
                     @php $size = sizeof($fixtures); $j=$k=1; @endphp
-                    <div class="col-4"> 
+                    <div class="col-12"> 
                         <div class="table-responsive">
                             <h4 class="text-center">Match Day {{ $j++ }}</h4>  
                             <table class="table table-hover table-bordered">
@@ -152,7 +152,7 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="col-4"> 
+                            <div class="col-12"> 
                                 <div class="table-responsive">
                                     <h4 class="text-center">Match Day {{ $j++ }}</h4>
                                     <table class="table table-hover table-bordered">
