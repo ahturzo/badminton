@@ -196,9 +196,9 @@ class MatchController extends Controller
      * @param  \App\Match  $match
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Match $match)
+    public function destroy($id)
     {
-        //
+        Match::destroy($id);
     }
 
     public function allMatches()

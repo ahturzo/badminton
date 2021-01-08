@@ -280,7 +280,7 @@
 	                      	swal.fire({
 	                        	type: "success",
 	                        	title: "Done!",
-	                        	text: "Team Deleted.",
+	                        	text: "Match Deleted.",
 	                      	});
                   		}
                   	},
@@ -297,7 +297,7 @@
               swal.fire({
                     type: "success",
               		title: "Safe",
-                    text: "Team Not Deleted!",
+                    text: "Match Not Deleted!",
               });
             }
           });
