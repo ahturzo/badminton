@@ -13,7 +13,7 @@ class PublicController extends Controller
     {
     	$team = Team::orderBy('point', 'DESC')->orderBy('net_point', 'DESC')->get();
     	$fixture = Fixture::all();
-    	
+
     	if(sizeof($fixture) == 0)
     	{
     		$match = 0;
@@ -43,6 +43,7 @@ class PublicController extends Controller
 							}
 		    			}
 		    		}
+                    // fixture creation
 	    			$create = Fixture::create([
 	    				'match_no'	=> $match_no,
 	    				'team1'		=> $team1,
